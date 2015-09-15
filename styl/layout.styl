@@ -1,0 +1,41 @@
+:root {
+  font-size: 32px;
+}
+
+body {
+	background: url('/img/background.jpg');
+  background-size: cover;
+	color: yellow;
+  font-family: fantasy;
+  margin: 16px;
+	text-align: center;
+}
+
+// body { mask-image: linear-gradient(black 0%, transparent 100%) }
+
+
+p
+	// background: purple;
+	// color: orange;
+
+iframe {
+
+  width: 320px;
+  height: 180px;
+
+  @media $tablet_portrait {
+    width: 640px;
+    height: 360px;
+  }
+
+  @media $tablet_landscape {
+    width: 960px;
+    height: 540px;
+  }
+
+  @media $desktop {
+    width: 1280px;
+    height: 720px;
+  }
+
+}

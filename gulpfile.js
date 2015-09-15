@@ -1,10 +1,3 @@
-var gulp = require('gulp');
-var stylus = require('gulp-stylus');
-var autoprefixer = require('gulp-autoprefixer');
-
-
-
-
 // Gulpfile.js
 // Require the needed packages
 var gulp = require('gulp'),
@@ -22,12 +15,12 @@ var gulp = require('gulp'),
 gulp.task('stylesheets', function () {
   gulp.src('./styl/application.styl')
     .pipe(plumber())
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(sourcemaps.init())
     .pipe(stylus())
     .pipe(autoprefixer("last 2 versions", "> 5%", "ie 10", "ie 9"))
-    .pipe(concat('style.css'))
+    .pipe(concat('styles.css'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('javascripts', function() {
@@ -35,14 +28,14 @@ gulp.task('javascripts', function() {
   // guulp
   // build minified javascripts, jquery first
   gulp.src([
-    './js-source/lib/jquery-1.11.3.js',
-    './js-source/lib/*.js',
+    // './js-source/lib/jquery-1.11.3.js',
+    // './js-source/lib/*.js',
     './js-source/*.js'
   ])
     .pipe(sourcemaps.init())
     .pipe(concat('application.min.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./js'));
+    .pipe(gulp.dest('./public/js'));
 });
 
 
@@ -72,4 +65,3 @@ gulp.task('build', ['stylesheets', 'javascripts'], function() {
 });
 
 gulp.task('default', ['stylesheets', 'javascripts', 'watch']);
-
