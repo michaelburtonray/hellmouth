@@ -53,4 +53,6 @@ gulp.task('watch', function() {
 
 gulp.task('build', ['stylesheets', 'javascripts']);
 
+
+// This 'default' task will run if yo usimply type 'gulp' into the terminal
 gulp.task('default', ['stylesheets', 'javascripts', 'watch']);
