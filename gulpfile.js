@@ -51,17 +51,8 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task('build', ['stylesheets', 'javascripts'], function() {
+gulp.task('build', ['stylesheets', 'javascripts']);
 
-  // build minified javascripts, jquery first
-  gulp.src([
-    './js/lib/*.js',
-    './js/*.js'
-  ])
-    .pipe(concat('application.min.js'))
-    .pipe(stripDebug())
-    .pipe(uglify())
-    .pipe(gulp.dest('./js'));
-});
 
+// This 'default' task will run if yo usimply type 'gulp' into the terminal
 gulp.task('default', ['stylesheets', 'javascripts', 'watch']);
